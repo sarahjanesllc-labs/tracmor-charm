@@ -1,8 +1,42 @@
-#!/bin/bash
-# Here do anything needed to install the service
-# i.e. apt-get install -y foo  or  bzr branch http://myserver/mycode /srv/webroot
-# Make sure this hook exits cleanly and is idempotent, common problems here are
-# failing to account for a debconf question on a dependency, or trying to pull
-# from github without installing git first.
+#!/usr/bin/perl
 
-apt-get install -y tracmor
+use Huhu::DSL;
+
+=begin
+
+Install packages
+
+=cut
+
+install {
+    packages => [
+        qw(php5-memcache mysql-client pwgen php5 php5-fpm
+          php-apc mailutils php-mail php5-mysql php5-mcrypt php5-memcache php5-gd
+          php5-curl git-core)
+    ]
+};
+
+=begin
+
+Create directories, set permissions, and install required files
+
+=cut
+
+fs {directories => [
+        {   dir   => '/mnt/tmp',
+            chmod => 1777
+        },
+        {   dir   => '/mnt/logs/php-fpm',
+            chmod => 1777
+        },
+        {   dir   => '/mnt/ramdisk/proxy-cache',
+            chmod => 1777
+        },
+        {   dir   => '/mnt/ramdisk/phpfpm-cache',
+            chmod => 1777
+        },
+        {   file => 'files/php/php5_fpm_pool.d_www.conf',
+            dst  => '/etc/php5/fpm/pool.d/www.conf'
+        }
+    ];
+};

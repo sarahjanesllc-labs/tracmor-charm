@@ -5,8 +5,7 @@ centralize and track your assets online. From its simple web-based
 interface to its intuitive workflow, Tracmor will help you drive down
 costs while maintaining an accurate record of your assets.
 
-Usage
------
+# Usage
 
 Step by step instructions on using the charm:
 
@@ -17,13 +16,11 @@ Step by step instructions on using the charm:
 
 You can then browse to http://ip-address to configure the service.
 
-Configuration
--------------
+# Configuration
 
 N/A
 
-Contact Information
--------------------
+# Contact Information
 
 Author: Adam Stokes
 Report bugs at: https://github.com/ajscg/tracmor-charm/issues
