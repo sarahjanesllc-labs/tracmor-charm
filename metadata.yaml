@@ -1,0 +1,16 @@
+name: tracmor
+summary: Asset tracking solution
+maintainer: Adam Stokes <adamjs@cpan.org>
+description: |
+  Tracmor.org is home to the open source version of the PHP and MySQL
+  powered system which makes it easy to centralize and track your
+  assets online.
+categories:
+  - applications
+subordinate: false
+provides:
+  website:
+    interface: http
+requires:
+  database:
+    interface: mysql
